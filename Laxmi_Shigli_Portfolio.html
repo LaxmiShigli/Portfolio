@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laxmi Shigli — Generative AI & ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fb;--panel:#ffffff;--line:#dde3ec;--ink:#1b2430;--mute:#5b6676;--accent:#1f6feb;--green:#1a7f37;--orange:#c4560a;--chip:#eef2f8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:960px;margin:auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:24px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+nav b{margin-right:auto;font-size:18px}
+nav a{color:var(--mute);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--ink)}
+section{padding:72px 0 8px}
+.hero{padding-top:64px}
+.profile{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:36px}
+.photo{position:relative;width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid var(--panel);box-shadow:0 6px 24px rgba(27,36,48,.15);background:var(--chip);display:grid;place-items:center}
+.photo span{font-size:3rem;font-weight:700;color:var(--accent)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.profile h1{font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.15;margin:20px 0 0;letter-spacing:-.02em}
+.badge{display:inline-block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--green);border:1px solid #b7e0c0;background:#e8f6ec;padding:4px 12px;border-radius:99px;margin-bottom:26px}
+.nb{box-shadow:0 2px 10px rgba(27,36,48,.06);background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.nb .bar{display:flex;gap:8px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);color:var(--mute);font-size:13px}
+.nb .bar i{width:10px;height:10px;border-radius:50%;background:#c9d1dc}
+.cell{display:grid;grid-template-columns:70px 1fr;gap:8px;padding:16px}
+.cell .in{color:var(--accent);font-size:13px;padding-top:2px}
+.cell code{color:var(--orange);font-size:15px}
+.out p{margin:0 0 14px;max-width:64ch;font-size:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--ink)}
+.btn.p{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{filter:brightness(1.12)}
+.tag{display:block;font-size:13px;color:var(--green);margin-bottom:6px}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);line-height:1.2;margin:0 0 28px;letter-spacing:-.02em}
+h3{font-size:1.25rem;margin:0}
+h4{font-size:.95rem;margin:0 0 10px;color:var(--mute);font-weight:600}
+.stack{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--chip);border:1px solid var(--line);font-size:13.5px;padding:3px 11px;border-radius:6px}
+.skl{list-style:none;padding:0;margin:0}
+.skl li{display:flex;align-items:center;gap:12px;padding:9px 14px;margin-bottom:8px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;font-size:15px}
+.js .skl li{opacity:0;transform:translateX(-14px);transition:opacity .4s ease,transform .4s ease}
+.js .skl li.in{opacity:1;transform:none}
+.repo{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:20px}
+.repo header{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.repo .sub{color:var(--mute);font-size:13px;margin:4px 0 14px}
+.repo ul.pts{padding-left:20px;margin:0 0 16px;color:#3b4656}
+.repo ul.pts li{margin-bottom:8px}
+.repo .chips li{font-size:12.5px;color:var(--accent)}
+.repo .code{font-size:14px;text-decoration:none;white-space:nowrap}
+.log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:16px}
+.log .kind{font-size:12px;color:var(--orange)}
+.log h3{margin:4px 0 2px}
+.log .org{color:var(--mute);margin-bottom:12px}
+.log ul{padding-left:20px;margin:0;color:#3b4656}
+.log li{margin-bottom:8px}
+.certs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:16px}
+.certs div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.certs p{margin:4px 0 0;font-size:15px}
+.certs .cl{display:inline-block;margin-top:8px;font-size:13px;text-decoration:none}
+.certs .cl:hover{text-decoration:underline}
+.beyond{margin-top:34px}
+.beyond ul{padding-left:20px;margin:0;color:#3b4656}
+.beyond li{margin-bottom:6px}
+.edu{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:18px 0;border-top:1px solid var(--line)}
+.edu:last-child{border-bottom:1px solid var(--line)}
+.edu h3{font-size:1.1rem}
+.edu p{margin:2px 0;color:var(--mute);font-size:15px}
+.edu .r{text-align:right;color:var(--mute);font-size:14px}
+.edu .r b{display:block;color:var(--green);font-size:16px}
+.contact{margin-top:72px;border-top:1px solid var(--line);padding:64px 0 56px;text-align:center}
+.contact h2{margin-bottom:14px}
+.contact p{color:var(--mute);margin:0 auto 24px;max-width:54ch}
+.contact .btns{justify-content:center}
+.contact .info{margin-top:26px;font-size:15px;color:var(--mute)}
+@media (max-width:720px){.stack,.certs{grid-template-columns:1fr}.cell{grid-template-columns:1fr}.edu{grid-template-columns:1fr}.edu .r{text-align:left}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<b>Laxmi Shigli</b>
+<a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+</div></nav>
+
+<main class="wrap">
+<section class="hero">
+<div class="profile">
+<div class="photo"><img src="profile.jpg" alt="Laxmi Shigli" width="180" height="180" onerror="this.remove()"><span aria-hidden="true">LS</span></div>
+<h1>Laxmi Mahesh Shigli</h1>
+</div>
+<div class="nb">
+<div class="cell"><span class="in mono">In [1]:</span><code class="mono">print(about_me)</code></div>
+<div class="cell"><span class="in mono"></span><div class="out">
+<p>I'm <strong>Laxmi</strong>, a Computer Science graduate (B.E., 2026) who builds generative AI applications, RAG pipelines and end-to-end ML workflows. I work in Python, SQL and prompt engineering, integrate LLMs through REST APIs, and test and validate AI outputs before they ship.</p>
+<div class="btns"><a class="btn p" href="#projects">See the projects →</a><a class="btn" href="#contact">Get in touch</a></div>
+</div></div>
+</div>
+</section>
+
+<section id="stack">
+<span class="tag mono">stack</span>
+<h2>What I build with</h2>
+<div class="stack">
+<div><h4>Generative AI &amp; Agentic AI</h4><ul class="skl"><li>Prompt Engineering</li><li>LLM API Integration (xAI Grok)</li><li>RAG Fundamentals</li><li>Chunking</li><li>Embeddings</li><li>Retrieval</li><li>Grounded Prompting</li><li>Chatbot Development</li><li>Token Streaming</li></ul></div>
+<div><h4>Programming &amp; APIs</h4><ul class="skl"><li>Python</li><li>SQL</li><li>REST APIs</li><li>JSON</li><li>FastAPI</li><li>Flask</li><li>Server-Sent Events (SSE)</li><li>Asynchronous Programming</li></ul></div>
+<div><h4>Machine Learning &amp; Cloud</h4><ul class="skl"><li>Scikit-learn</li><li>XGBoost</li><li>Pandas</li><li>NumPy</li><li>Feature Engineering</li><li>EDA</li><li>Model Evaluation</li><li>Data Preprocessing</li><li>Azure/AWS AI services</li></ul></div>
+<div><h4>Web &amp; Tools</h4><ul class="skl"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React.js</li><li>Tailwind CSS</li><li>Git</li><li>GitHub</li><li>MySQL</li><li>Jupyter Notebook</li><li>Test Cases &amp; Output Validation</li></ul></div>
+</div>
+</section>
+
+<section id="projects">
+<span class="tag mono">05 projects</span>
+<h2>Things I've shipped</h2>
+
+<article class="repo">
+<header><h3>Retrieval-Augmented Generation (RAG) Assistant</h3><!-- REPLACE the URL below with your real RAG repo link --><a class="code mono" href="https://github.com/LaxmiShigli/RAG-Assistant">View code ↗</a></header>
+<p class="sub mono">RAG · retrieval · grounded answers</p>
+<ul class="pts"><li>Built a working RAG pipeline from scratch: document chunking with overlap, TF-IDF embeddings, cosine-similarity retrieval and grounded prompt construction so answers strictly cite the retrieved knowledge.</li><li>Supported generation through the xAI Grok API.</li></ul>
+<ul class="chips mono"><li>Python</li><li>Scikit-learn</li><li>xAI Grok API</li><li>Vector Context Basics</li></ul>
+</article>
+
+<article class="repo">
+<header><h3>Grok-Powered FastAPI Chatbot</h3><a class="code mono" href="https://github.com/LaxmiShigli/Grok-FastAPI-Chatbot">View code ↗</a></header>
+<p class="sub mono">LLM streaming · async backend · real-time responses</p>
+<ul class="pts"><li>Developed an asynchronous chatbot integrating the Grok API through an OpenAI-compatible streaming architecture.</li><li>Built token streaming with FastAPI and Server-Sent Events (SSE) for low-latency, non-blocking delivery, with environment-based configuration.</li></ul>
+<ul class="chips mono"><li>FastAPI</li><li>Python</li><li>xAI Grok API</li><li>JavaScript</li><li>SSE</li><li>HTML</li><li>CSS</li></ul>
+</article>
+
+<article class="repo">
+<header><h3>AI Ad Copy Generator</h3><a class="code mono" href="https://github.com/LaxmiShigli/AI-Ad-Copy-Generator">View code ↗</a></header>
+<p class="sub mono">generative AI · API integration · Flask</p>
+<ul class="pts"><li>Engineered an LLM-powered tool that generates ad headlines, descriptions and promotional copy using engineered prompt templates with adjustable tone.</li><li>Integrated the Unsplash API for image recommendations, with a responsive Flask interface.</li></ul>
+<ul class="chips mono"><li>Python</li><li>Flask</li><li>Grok AI API</li><li>Unsplash API</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+</article>
+
+<article class="repo">
+<header><h3>Crash Severity Prediction</h3><a class="code mono" href="https://github.com/LaxmiShigli/Crash-Severity-Prediction">View code ↗</a></header>
+<p class="sub mono">classification · tabular data · feature importance</p>
+<ul class="pts"><li>Formulated an end-to-end classification pipeline covering data cleaning, feature engineering and EDA.</li><li>Evaluated four models using Precision, Recall and F1-Score.</li><li>Conducted feature importance analysis to isolate the key drivers of accident severity.</li></ul>
+<ul class="chips mono"><li>Python</li><li>Pandas</li><li>Scikit-learn</li><li>XGBoost</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+</article>
+
+<article class="repo">
+<header><h3>Virtual Learning Environment</h3></header>
+<p class="sub mono">full-stack · authentication · progress tracking</p>
+<ul class="pts"><li>Designed a full-stack learning platform with user authentication, course management, assignments, quizzes and progress tracking.</li><li>Implemented JSON-based structured data management across application components.</li></ul>
+<ul class="chips mono"><li>React.js</li><li>Tailwind CSS</li><li>JSON</li><li>Built-in Database</li><li>JavaScript</li><li>REST APIs</li></ul>
+</article>
+</section>
+
+<section id="experience">
+<span class="tag mono">log</span>
+<h2>Experience &amp; certifications</h2>
+
+<div class="log">
+<span class="kind mono">Internship</span>
+<h3>Web Development and Data Science Intern &amp; Team Head</h3>
+<p class="org">Contriver</p>
+<ul>
+<li>Built an LLM-powered marketing tool with the Grok AI API and advanced prompt engineering, automating ad copywriting and reducing content creation time from hours to seconds.</li>
+<li>Performed functional testing and validation of AI application outputs against defined criteria and test cases; analyzed responses for hallucinations and iterated on prompt templates to improve output quality and reliability.</li>
+<li>Developed end-to-end ML workflows for crash severity analysis: data cleaning, feature importance scoring and model comparison across Logistic Regression, Decision Tree, Random Forest and XGBoost.</li>
+<li>Served as Team Head: coordinated project milestones, tracked task delivery and maintained technical documentation across AI, backend API and web workstreams, using Git for collaboration.</li>
+</ul>
+</div>
+
+<div class="certs">
+<div><span class="kind mono" style="color:var(--orange);font-size:12px">Cert.</span><p>Foundational Training Program, Infosys</p><a class="cl mono" href="certificates/Infosys_Certificate.png" target="_blank" rel="noopener">View certificate ↗</a></div>
+<div><span class="kind mono" style="color:var(--orange);font-size:12px">Cert.</span><p>Google Badge: Introduction to Large Language Models</p><a class="cl mono" href="certificates/LLM_Google.pdf" target="_blank" rel="noopener">View PDF ↗</a></div>
+<div><span class="kind mono" style="color:var(--orange);font-size:12px">Cert.</span><p>Google Badge: Introduction to Generative AI</p><a class="cl mono" href="certificates/Gen_AI_Google.pdf" target="_blank" rel="noopener">View PDF ↗</a></div>
+<div><span class="kind mono" style="color:var(--orange);font-size:12px">Cert.</span><p>AWS Cloud Practitioner Essentials</p><a class="cl mono" href="certificates/AWS_Certificate.pdf" target="_blank" rel="noopener">View certificate ↗</a></div>
+</div>
+
+<div class="beyond">
+<h3 style="margin-bottom:12px">Beyond the desk</h3>
+<ul>
+<li>Team Head at Contriver, leading internship project deliverables</li>
+<li>Presented a research paper on Amazon Go (automated retail frameworks)</li>
+<li>Event Coordinator for the National Hackathon and ISRO Space Event</li>
+</ul>
+</div>
+</section>
+
+<section id="education">
+<span class="tag mono">edu</span>
+<h2>Education</h2>
+<div class="edu">
+<div><h3>B.E. in Computer Science &amp; Engineering</h3><p>Smt. Kamala and Sri Venkappa M. Agadi College of Engineering and Technology</p></div>
+<div class="r">Dec 2022 – May 2026<b>CGPA 8.2 / 10</b></div>
+</div>
+<div class="edu">
+<div><h3>Pre-University Course (12th), Science</h3><p>Vidyaniketan PU Science College</p></div>
+<div class="r">Jul 2021 – Apr 2022<b>87.5%</b></div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<h2>Let's build something together.</h2>
+<p>Seeking an entry-level Generative AI, AI/ML Engineer or Python Developer role. Happy to walk through any project in detail.</p>
+<div class="btns"><a class="btn p" href="mailto:laxmishigli@gmail.com">laxmishigli@gmail.com</a><a class="btn" href="https://github.com/LaxmiShigli">GitHub ↗</a><a class="btn" href="https://www.linkedin.com/in/laxmi-shigli-a1b03924b">LinkedIn ↗</a></div>
+<p class="info mono">+91 9606785567 · Karnataka, India</p>
+</section>
+</main>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var items=e.target.querySelectorAll('li');
+      items.forEach(function(li,i){setTimeout(function(){li.classList.add('in')},i*110)});
+      io.unobserve(e.target);
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.skl').forEach(function(l){io.observe(l)});
+})();
+</script>
+</body>
+</html>
